@@ -420,7 +420,7 @@ function sortByAsc(/* arr */) {
 function shuffleChar(str, iterations) {
   let res = str;
 
-  for (let i = 0; i < iterations; i += 1) {
+  for (let i = 1; i <= iterations; i += 1) {
     let firstPart = '';
     let secondPart = '';
     for (let j = 0; j < res.length; j += 1) {
@@ -431,6 +431,7 @@ function shuffleChar(str, iterations) {
       }
     }
     res = firstPart + secondPart;
+    if (str === res) return shuffleChar(str, iterations % i);
   }
   return res;
 }
